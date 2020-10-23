@@ -11,7 +11,7 @@
 - [x] 5. Criar o arquivo index.js
 - [x] 6. Instalar o Nodemon
 - [x] 7. Usar o bodyParser
-- [x] 8. Observação:
+- [x] 8. Observação
 
     ---
 
@@ -29,10 +29,10 @@
     _Obs.: Com o **npm init -y** não é necessário responder as perguntas para iniciar o projeto, ele faz as configurações automáticas._
 
     ~~~Shell
-    npm init
+        npm init
     ~~~
     ~~~Shell
-    npm init -y
+        npm init -y
     ~~~
 
     - Será gerado um arquivo chamado package.json que contém as configurações básicas para o seu projeto e os pacotes instalados posteriormente serão registrados nele.
@@ -68,10 +68,6 @@
     ~~~Javascript
         node_modules/
     ~~~
-
-    > :vertical_traffic_light: Em seu editor de texto criar o arquivo .gitignore e dentro dele inserir a linha _node_modules/_
-    >Como saída teremos o arquvo .gitignore com suas configurações básicas.
-
     ---
 
 5. Criar o arquivo index.js
@@ -146,12 +142,12 @@
 
     ---
 
-7.  Usar o bodyParser
+7.  Usar o BodyParser
 
     - Utilizamos o **Body-parser** para transformar as informações no body da requisição em informação útil para a programação. Para instalarmos esse módulo utilizamos o comando abaixo:
 
     ~~~Shell
-    npm install body-parser
+        npm install body-parser
     ~~~
 
     - No index.js acrescentamos o BodyParser após a requisição **express**, através do express com o seu módulo **app.use()** passamos o bodyParser.json().
@@ -178,7 +174,7 @@
 
 8.  Observação:
 
-    - Caso seja necessário reinstalar os pacotes do node por eles não estarem presentes no projeto baixado, basta executar o comando abaixo no terminal que todas as dependências presentes no **package.json** serão identificados e instaladas.
+    - Caso seja necessário reinstalar os pacotes do node por eles não estarem presentes no projeto baixado, basta executar o comando abaixo no terminal que todas as dependências presentes no **package.json** serão identificadas e instaladas.
 
     ~~~Shell
         npm install
