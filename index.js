@@ -12,11 +12,29 @@ app.get('/', function (req, res) {
   res.send('Hello World');
 });
 
-const mensagens = ['Essa é uma mensagem', 'Essa é outra mensagem'];
+const mensagens = [
+    {
+        'id': 1,
+        'texto': 'Essa é uma mensagem'
+    },
+    {
+        'id': 2,
+        'texto': 'Essa é outra mensagem'
+    }
+];
 
 // Read All
 app.get('/mensagem', function(req, res) {
-    res.send(mensagens);
+    res.send(mensagens.filter(Boolean));
+});
+
+// Read Single
+app.get('/mensagem/:id', function(req, res) {
+    const id = req.params.id;
+
+    const mensagem = mensagens[id - 1];
+
+    res.send(mensagem);
 });
 
 // Create
@@ -24,11 +42,35 @@ app.post('/mensagem', function(req, res) {
     // Obtenho o texto a partir do body da requisição
     const texto = req.body.texto;
 
-    //Adiciono o texto recebido na lista de mensagens
-    mensagens.push(texto);
+    const mensagem = {
+        'id': mensagens.length + 1,
+        'texto': texto
+    }
 
-    res.send('Mensagem adicionada com sucesso.');
+    //Adiciono o texto recebido na lista de mensagens
+    mensagens.push(mensagem);
+
+    res.send(mensagem);
 });
+
+// Update
+app.put('/mensagem/:id', function(req, res) {
+    const id = req.params.id;
+    const texto = req.body.texto;
+
+    mensagens[id - 1].texto = texto;
+
+    res.send(mensagens[id - 1]);
+})
+
+// Delete
+app.delete('/mensagem/:id', function(req, res) {
+    const id = req.params.id;
+
+    delete mensagens[id - 1] 
+
+    res.send(`A mensagem de ID ${id}, foi removida com sucesso.`);
+})
  
 app.listen(port, function () {
     console.log(`App rodando em http://localhost:${port}`);
